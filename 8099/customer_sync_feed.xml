@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diagnosis xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-<diagnosis xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 		   xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
 		   xmlns="http://www.w3.org/2005/Atom" 
 		   xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
