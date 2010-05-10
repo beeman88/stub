@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tracking xmlns="http://schemas.sage.com/sdata/2008">
+  <phase>Synch Customers</phase>
+  <phaseDetail>In Progress</phaseDetail>
+  <progress>20.0</progress>
+  <elapsedSeconds>2</elapsedSeconds>
+  <remainingSeconds>6</remainingSeconds>
+</tracking>

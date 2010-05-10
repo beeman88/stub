@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+      xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+      xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+      xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+      xmlns:sc="http://schemas.sage.com/sc/2009" 
+      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+ 
+  <title>Billing Boss tradingAccount</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?count=0</id>
+
+  <author>
+    <name>BillingBoss</name>
+  </author>
+ 
+  <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+ 
+  <opensearch:totalResults>5</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>0</opensearch:itemsPerPage>
+

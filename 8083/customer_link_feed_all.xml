@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+      xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+      xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+      xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+      xmlns:sc="http://schemas.sage.com/sc/2009" 
+      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+ 
+  <title>Billing Boss | Customers</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag</id>
+  <updated>2010-03-31T13:46:45Z</updated>
+  <author>
+    <name>Billing Boss</name>
+  </author>
+ 
+  <link rel="self" type="application/atom+xml" title="Refresh"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag" />
+  <link rel="first" type="application/atom+xml" title="First Page"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?  select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
+  <link rel="last" type="application/atom+xml" title="Last Page"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?  select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
+  <link rel="next" type="application/atom+xml" title="Next Page"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?  select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
+  <link rel="http://schemas.sage.com/sdata/link-relations/schema"
+  type="application/xml" title="Schema"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$schema" />
+  <link rel="http://schemas.sage.com/sdata/link-relations/template"
+  type="application/atom+xml; type=entry" title="Template"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$template" />
+  <link rel="http://schemas.sage.com/sdata/link-relations/post"
+  type="application/atom+xml; type=entry" title="Post"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts" />
+  <link rel="http://schemas.sage.com/sdata/link-relations/service"
+  type="application/atom+xml" title="Service"
+  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$service" />
+ 
+  <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+ 
+  <opensearch:totalResults>3</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')?select=name,customerSupplierFlag</id>
+    <title>Customer 43660 MODIFIED</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml; type=entry" title="self"   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+    <content>Customer 43660 MODIFIED select name,customerSupplierFlag</content>
+ 
+    <sdata:payload>
+      <crm:tradingAccount sdata:key="43660" sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" xmlns="http://schemas.sage.com/crmErp">
+        <crm:name>Customer Name 43660 MODIFIED</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>
+      </crm:tradingAccount>
+    </sdata:payload>
+  </entry>
+ 
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')?select=name,customerSupplierFlag</id>
+    <title>Customer 43661 MODIFIED</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml; type=entry" title="self" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43661')" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+    <content>Customer 43661 MODIFIED select name</content>
+ 
+    <sdata:payload>
+      <crm:tradingAccount sdata:key="43661" sdata:uuid="138BB530-18CB-410d-8969-753F9EB8BC08" xmlns="http://schemas.sage.com/crmErp">
+        <crm:name>Customer Name 43661 MODIFIED</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>
+      </crm:tradingAccount>
+    </sdata:payload>
+  </entry>
+  
+  <entry>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8082')?select=name,customerSupplierFlag</id>
+    <title>Customer 8082</title>
+    <updated>2010-03-31T13:46:45Z</updated>
+    <link rel="self" type="application/atom+xml" title="self"
+    href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('8082')" />
+    <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
+    <content>Customer 8082 select name</content>
+ 
+    <sdata:payload>
+      <crm:tradingAccount sdata:key="8082" sdata:uuid="5ec1f640-5897-11df-a08a-0800200c9a66">
+        <crm:name>溫哥華</crm:name>
+        <crm:customerSupplierFlag>Customer</crm:customerSupplierFlag>
+      </crm:tradingAccount>
+    </sdata:payload>
+  </entry>
+  
+</feed>
