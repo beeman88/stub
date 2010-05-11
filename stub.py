@@ -74,7 +74,7 @@ def index():
 
     response.content_type='application/atom+xml'
 
-    # when count parameter exists, return count of all customers
+    # when count parameter exists, return count of all resources
     try:
         count = request.GET['count']
     except Exception:
@@ -86,7 +86,8 @@ def index():
             write_to_log('return count of all resources')
         return sdata_link_count_all()
 
-    # no parameters, return feed of customers
+    # return feed of resources
+    # the select parameter specifies what fields to return is handled in the xml file
     return sdata_link_feed_all()
 
 # 5. Post new links
