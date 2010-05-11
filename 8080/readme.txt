@@ -1,8 +1,8 @@
 uuid generator http://www.famkruithof.net/uuid/uuidgen
-curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb user password
+curl_stub 8080 abc42b0d-d110-4f5c-ac79-d3aa11bd20cb user password tradingAccounts
 
 
-8081
+8080
 link and sync BB Customer 43660
 
 
