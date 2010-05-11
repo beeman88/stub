@@ -3,7 +3,7 @@ curl_stub 9050 4d8eb5f0-5d1c-11df-a08a-0800200c9a66 user password salesInvoices
 
 
 9050
-link and sync invoices to BB Customer 43660
+link and sync 5 invoices to BB Customer 43660
 
 
 Initial
