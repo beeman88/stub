@@ -12,7 +12,7 @@ global port_number
 @route('/')
 def index():
     return '''
-<h3>This test will send the responses to synchronize new customers from billing boss to simply accounting.</h3>
+<h3>This test will send the responses to synchronize new customers, invoices from billing boss to simply accounting.</h3>
 <br/>
 <ul>
 <li>Instructions:</li>
@@ -32,15 +32,16 @@ def index():
     log_method_start('Authentication')
     return authentication()
 
-# 2. Get Count of linked customers
-#    Return 0 linked customers
+# 2. Get Count of linked customers, invoices
+#    Return 0 linked resources
 # GET request
 # /sdata/billingboss/crmErp/TradingAccounts/$linked?count=0
 # TODO because no tradingAccount entries are returned, the link for first, last, next page have count = 0
 # compare with Sage 50 - Act! implementation
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='GET')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='GET')
 def index():
-    log_method_start('Count of linked customers')
+    log_method_start('Count of linked resources')
     if authentication() <> "Authenticated":
         return "Access Denied"    
                  
@@ -53,24 +54,21 @@ def index():
     else:
         if debug == "1":
             write_to_log('count = {0}'.format(count))
-            write_to_log('return count linked customers')
+            write_to_log('return count linked resources')
         response.content_type='application/atom+xml'    
-        return sdata_customer_link_count_linked()
+        return sdata_link_count_linked()
 
 # GET requests  
-# 3a. Get count of all customers
+# 3a. Get count of all customers, invoices
 # /sdata/billingboss/crmErp/-/tradingAccounts?count=0
-
-# Get unlinked no longer called
-# 3b. Get customers that don't have links
-# /sdata/billingboss/crmErp/-/tradingAccounts?where=uuid eg null&select=name,customerSupplierFlag
 
 # TODO /sdata/billingboss/crmErp/-/tradingAccounts?select=name,customerSupplierFlag the real request?
 # /sdata/billingboss/crmErp/-/tradingAccounts
-# all customers
+# all customers, invoices
 @route('/sdata/billingboss/crmErp/-/tradingAccounts', method='GET')
+@route('/sdata/billingboss/crmErp/-/salesInvoices', method='GET')
 def index():
-    log_method_start('GET customers')
+    log_method_start('GET count of all resources or link feed')
     if authentication() <> "Authenticated":
         return "Access Denied"
 
@@ -85,28 +83,17 @@ def index():
     else:
         if debug == "1":        
             write_to_log('count = {0}'.format(count))
-            write_to_log('return all customers')
-        return sdata_customer_link_count_all()
-
-##    # when where parameter exists, return unlinked customers
-##    try:
-##        where = request.GET['where']
-##    except Exception:
-##        if debug == "1":
-##            write_to_log('where does not exist')
-##    else:
-##        if debug == "1":
-##            write_to_log('where = {0}'.format(where))
-##            write_to_log('return unlinked customer feed')
-##        return sdata_customer_link_feed_unlinked()
+            write_to_log('return count of all resources')
+        return sdata_link_count_all()
 
     # no parameters, return feed of customers
-    return sdata_customer_link_feed_all()
+    return sdata_link_feed_all()
 
 # 5. Post new links
 # POST request
 # response is one entry for Ashburton Reinforcing
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='POST')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='POST')
 def index():
     global new_link_ids_index 
     global new_link_ids
@@ -125,7 +112,7 @@ def index():
     response.content_type='application/atom+xml'
     response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + new_link_ids[new_link_ids_index].strip() + "')"
 
-    xml = sdata_customer_link_post()
+    xml = sdata_link_post()
     
     # increment new_link_ids_index
     new_link_ids_index = new_link_ids_index + 1
@@ -136,6 +123,7 @@ def index():
 # 6. Create sync request
 # POST
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource', method='POST')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource', method='POST')
 def index():
     log_method_start('Create sync request')
 
@@ -173,7 +161,7 @@ def index():
     response.status = 202
     response.content_type='application/xml'
     response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + trackingId + "')"
-    return sdata_customer_sync_accepted()
+    return sdata_sync_accepted()
 
 # First request return sync in progress, second request returns feed
 # 7a. Request status of sync request (In progress)
@@ -181,6 +169,7 @@ def index():
 # GET on location of previous request
 # /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='GET')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='GET')
 def index(tracking_id):
     global in_progress_count 
     global in_progress_reqs    
@@ -200,7 +189,7 @@ def index(tracking_id):
         response.status = 202
         response.content_type='application/xml'
         response.headers['Location'] = request.url
-        return sdata_customer_sync_in_progress()
+        return sdata_sync_in_progress()
     else:
         if debug == "1":        
             write_to_log('sync feed complete')        
@@ -208,12 +197,13 @@ def index(tracking_id):
         response.status = 200
         response.content_type='application/atom+xml'
         response.headers['Location'] = request.url
-        return sdata_customer_sync_feed()
+        return sdata_sync_feed()
 
 # 8. Delete (finish) sync request
 # DELETE request
 # /sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('abc42b0d-d110-4f5c-ac79-d3aa11bd20cb')
-@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='DELETE') 
+@route('/sdata/billingboss/crmErp/-/tradingAccounts/$syncSource('':tracking_id'')', method='DELETE')
+@route('/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('':tracking_id'')', method='DELETE')
 def index(tracking_id):
     log_method_start('Delete (finish) sync request')
 
@@ -227,35 +217,35 @@ def index(tracking_id):
 
 ##################################################
 
-def sdata_customer_link_count_linked():
-    return read_file('customer_link_count_linked.xml')
+def sdata_link_count_linked():
+    return read_file('link_count_linked.xml')
 
-def sdata_customer_link_count_all():
-    return read_file('customer_link_count_all.xml')
+def sdata_link_count_all():
+    return read_file('link_count_all.xml')
 
-def sdata_customer_link_feed_unlinked():
-    return read_file('customer_link_feed_unlinked.xml')
+def sdata_link_feed_unlinked():
+    return read_file('link_feed_unlinked.xml')
 
-def sdata_customer_link_feed_all():
-    return read_file('customer_link_feed_all.xml')
+def sdata_link_feed_all():
+    return read_file('link_feed_all.xml')
 
-def sdata_customer_link_post():
+def sdata_link_post():
     global new_link_ids_index 
 
     if new_link_ids_index == 0:
-        return read_file('customer_link_post.xml')
+        return read_file('link_post.xml')
     else:
-        return read_file('customer_link_post_{0}.xml'.format(new_link_ids_index))
+        return read_file('link_post_{0}.xml'.format(new_link_ids_index))
     
-def sdata_customer_sync_accepted():
-    return read_file('customer_sync_accepted.xml')
+def sdata_sync_accepted():
+    return read_file('sync_accepted.xml')
 
-def sdata_customer_sync_in_progress():
-    return read_file('customer_sync_in_progress.xml')
+def sdata_sync_in_progress():
+    return read_file('sync_in_progress.xml')
 
 # TODO What is the simply endpoint?
-def sdata_customer_sync_feed():
-    return read_file('customer_sync_feed.xml')
+def sdata_sync_feed():
+    return read_file('sync_feed.xml')
 
 def read_file(filename):
     import os.path
