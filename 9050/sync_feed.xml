@@ -38,19 +38,19 @@
   </digest>
  
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')</id>
-    <title>Invoice 14082<title/>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')</id>
+    <title>Invoice 14081<title/>
     <updated>2008-10-30T14:55:43.281Z</updated>
-    <content>BB Invoice 14082</content>
+    <content>BB Invoice 14081</content>
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>2</tick>
+      <tick>1</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
     <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:salesInvoice sdata:key="14082" sdata:uuid="73668410-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
+      <crm:salesInvoice sdata:key="14081" sdata:uuid="62559e90-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
 		<crm:active>true</crm:active>
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>
@@ -60,12 +60,12 @@
 			sdata:key="43660" 
 			xmlns="http://schemas.sage.com/crmErp">
 		</crm:tradingAccount>
-		<crm:customerReference>I1248</crm:customerReference>
+		<crm:customerReference>I1247</crm:customerReference>
 		<crm:copyFlag>false</crm:copyFlag>
 		<crm:date>2010-03-31Z</crm:date>
 		<crm:time>13:46:45Z</crm:time>
 		<crm:taxDate>2010-03-31Z</crm:taxDate>
-		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')/taxCodes" />
+		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')/taxCodes" />
 		<crm:deliveryRule>true</crm:deliveryRule>
 		<crm:currency>CAD</crm:currency>
 		<crm:operatingCompanyCurrency>CAD</crm:operatingCompanyCurrency>
@@ -73,8 +73,8 @@
 		<crm:operatingCompanyCurrencyExchangeRateOperator>*</crm:operatingCompanyCurrencyExchangeRateOperator>
 		<crm:operatingCompanyCurrencyExchangeRateDate>2010-03-31Z</crm:operatingCompanyCurrencyExchangeRateDate>
 		<crm:buyerContact sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/contacts('310')" />
-		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14082')/salesInvoiceLines">
-		  <crm:salesInvoiceLine sdata:key="97646">
+		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14081')/salesInvoiceLines">
+		  <crm:salesInvoiceLine sdata:key="97644">
 		    <crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:>
@@ -87,12 +87,12 @@
 			<crm:netTotal>20</crm:netTotal>
 			<crm:chargesTotal>20</crm:chargesTotal>
 			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97646')/taxCodes" />
+			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97644')/taxCodes" />
 			<crm:priceTax>0.5</crm:priceTax>
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
 		  </crm:salesInvoiceLine>
-		  <crm:salesInvoiceLine sdata:key="97647">
+		  <crm:salesInvoiceLine sdata:key="97645">
 			<crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:>
@@ -105,7 +105,7 @@
 			<crm:netTotal>20</crm:netTotal>
 			<crm:chargesTotal>20</crm:chargesTotal>
 			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97647')/taxCodes" />
+			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97645')/taxCodes" />
 			<crm:priceTax>0.5</crm:priceTax>
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
@@ -120,8 +120,8 @@
 		<crm:discountTotal>10</crm:discountTotal>
 		<crm:taxTotal>0</crm:taxTotal>
 		<crm:grossTotal>42</crm:grossTotal>
-		<crm:text2>Modify this invoice's amount fields</crm:text2>
-		<crm:user>myusername</crm:user>
+		<crm:text2>Modify this invoice's non amount fields</crm:text2>
+		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>
@@ -210,7 +210,7 @@
 		<crm:taxTotal>0</crm:taxTotal>
 		<crm:grossTotal>42</crm:grossTotal>
 		<crm:text2>Modify this invoice's amount fields</crm:text2>
-		<crm:user>myusername</crm:user>
+		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>
@@ -223,7 +223,7 @@
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>1</tick>
+      <tick>3</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
@@ -299,7 +299,7 @@
 		<crm:taxTotal>0</crm:taxTotal>
 		<crm:grossTotal>42</crm:grossTotal>
 		<crm:text2>Modify this invoice's detail line</crm:text2>
-		<crm:user>myusername</crm:user>
+		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>
@@ -312,7 +312,7 @@
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>1</tick>
+      <tick>4</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
@@ -388,7 +388,7 @@
 		<crm:taxTotal>0</crm:taxTotal>
 		<crm:grossTotal>42</crm:grossTotal>
 		<crm:text2>Add a detail line</crm:text2>
-		<crm:user>myusername</crm:user>
+		<crm:user>Ryan</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>
@@ -401,7 +401,7 @@
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>1</tick>
+      <tick>5</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
@@ -477,7 +477,7 @@
 		<crm:taxTotal>0</crm:taxTotal>
 		<crm:grossTotal>42</crm:grossTotal>
 		<crm:text2>Delete a detail line</crm:text2>
-		<crm:user>myusername</crm:user>
+		<crm:user>Beatriz</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>
