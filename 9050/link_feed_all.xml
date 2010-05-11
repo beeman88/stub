@@ -95,7 +95,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14084">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" />
-		<crm:customerReference>I1230</crm:customerReference>
+		<crm:customerReference>I1250</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>
@@ -111,7 +111,7 @@
     <sdata:payload>
       <crm:salesInvoice sdata:key="14085">
 		<crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43660')" sdata:uuid="88815929-A503-4fcb-B5CC-F1BB8ECFC874" />
-		<crm:customerReference>I1231</crm:customerReference>
+		<crm:customerReference>I1251</crm:customerReference>
       </crm:salesInvoice>
     </sdata:payload>
   </entry>

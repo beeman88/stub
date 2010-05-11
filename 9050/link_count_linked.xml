@@ -11,7 +11,7 @@
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
   <title>Billing Boss salesInvoice</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices?count=0</id>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$linked?count=0</id>
 
   <author>
     <name>BillingBoss</name>
