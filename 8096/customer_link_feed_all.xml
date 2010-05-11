@@ -25,18 +25,10 @@
   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?  select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
   <link rel="next" type="application/atom+xml" title="Next Page"
   href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts?  select=name,customerSupplierFlag&amp;startIndex=1&amp;count=10" />
-  <link rel="http://schemas.sage.com/sdata/link-relations/schema"
-  type="application/xml" title="Schema"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$schema" />
-  <link rel="http://schemas.sage.com/sdata/link-relations/template"
-  type="application/atom+xml" title="Template"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$template" />
-  <link rel="http://schemas.sage.com/sdata/link-relations/post"
-  type="application/atom+xml" title="Post"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts" />
-  <link rel="http://schemas.sage.com/sdata/link-relations/service"
-  type="application/atom+xml" title="Service"
-  href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$service" />
+  <link rel="schema" type="application/xml" title="Schema" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$schema" />
+  <link rel="template" type="application/atom+xml" title="Template" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$template" />
+  <link rel="post" type="application/atom+xml" title="Post" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts" />
+  <link rel="service" type="application/atom+xml" title="Service" href="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$service" />
  
   <category scheme="http://schemas.sage.com/sdata/categories" term="tradingAccount" label=""/>
  
