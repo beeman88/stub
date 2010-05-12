@@ -1,0 +1,40 @@
+<feed xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+      xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+      xmlns="http://www.w3.org/2005/Atom" 
+      xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+      xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+      xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+      xmlns:sc="http://schemas.sage.com/sc/2009" 
+      xmlns:crm="http://schemas.sage.com/crmErp/2008">
+ 
+  <title>salesInvoice synchronization feed 4d8eb5f0-5d1c-11df-a08a-0800200c9a66</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('4d8eb5f0-5d1c-11df-a08a-0800200c9a66')</id>
+  <updated>2008-03-31T13:46:45Z</updated>
+
+  <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
+ 
+  <opensearch:totalResults>0</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+ 
+  <syncMode xmlns="http://schemas.sage.com/sdata/sync/2008/1">catchUp</syncMode>
+ 
+  <digest xmlns="http://schemas.sage.com/sdata/sync/2008/1">
+    <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</origin>
+    <digestEntry>
+      <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
+      <tick>6</tick>
+      <stamp>2010-10-30T17:23:08Z</stamp>
+      <conflictPriority>1</conflictPriority>
+    </digestEntry>
+    <digestEntry>
+      <endpoint>http://www.simply.com/sdata/simply/crmErp/-/salesInvoices</endpoint>
+      <tick>1</tick>
+      <stamp>2010-10-30T12:16:51Z</stamp>
+      <conflictPriority>2</conflictPriority>
+    </digestEntry>
+  </digest>
+ 
+</feed>
