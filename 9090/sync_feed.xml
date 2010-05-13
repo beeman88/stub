@@ -25,7 +25,7 @@
     <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</origin>
     <digestEntry>
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>10</tick>
+      <tick>12</tick>
       <stamp>2010-10-30T17:23:08Z</stamp>
       <conflictPriority>1</conflictPriority>
     </digestEntry>
@@ -45,12 +45,12 @@
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>10</tick>
+      <tick>12</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
     <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:salesInvoice sdata:key="14084" sdata:uuid="8be5b9c0-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
+      <crm:salesInvoice sdata:key="14084" sdata:uuid="949897e0-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
 		<crm:active>true</crm:active>
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>
@@ -60,7 +60,7 @@
 			sdata:key="43660" 
 			xmlns="http://schemas.sage.com/crmErp">
 		</crm:tradingAccount>
-		<crm:customerReference>I1250</crm:customerReference>
+		<crm:customerReference>I1251</crm:customerReference>
 		<crm:copyFlag>false</crm:copyFlag>
 		<crm:date>2010-03-31Z</crm:date>
 		<crm:time>13:46:45Z</crm:time>
@@ -74,7 +74,7 @@
 		<crm:operatingCompanyCurrencyExchangeRateDate>2010-03-31Z</crm:operatingCompanyCurrencyExchangeRateDate>
 		<crm:buyerContact sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/contacts('310')" />
 		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')/salesInvoiceLines">
-		  <crm:salesInvoiceLine sdata:key="97650">
+		  <crm:salesInvoiceLine sdata:key="97653">
 		    <crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:>
@@ -92,54 +92,18 @@
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
 		  </crm:salesInvoiceLine>
-		  <crm:salesInvoiceLine sdata:key="97651">
-			<crm:active>true</crm:active>
-			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:>
-			<crm:number>2</crm:number>
-			<crm:text>Invoice line 2</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
-			<crm:quantity>2</crm:quantity>
-			<crm:initialPrice>10</crm:initialPrice>
-			<crm:actualPrice>10</crm:actualPrice>
-			<crm:netTotal>20</crm:netTotal>
-			<crm:chargesTotal>20</crm:chargesTotal>
-			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97645')/taxCodes" />
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
-		  </crm:salesInvoiceLine>
-		  <crm:salesInvoiceLine sdata:key="97654">
-			<crm:active>true</crm:active>
-			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:>
-			<crm:number>3</crm:number>
-			<crm:text>Invoice line 3</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
-			<crm:quantity>2</crm:quantity>
-			<crm:initialPrice>10</crm:initialPrice>
-			<crm:actualPrice>10</crm:actualPrice>
-			<crm:netTotal>20</crm:netTotal>
-			<crm:chargesTotal>20</crm:chargesTotal>
-			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97645')/taxCodes" />
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
-		  </crm:salesInvoiceLine>
 		</crm:salesInvoiceLines>
-		<crm:lineCount>3</crm:lineCount>
+		<crm:lineCount>1</crm:lineCount>
 		<crm:settlementDiscountIncludedInTotal>false</crm:settlementDiscountIncludedInTotal>
 		<crm:invoiceDiscountType>Percent</crm:invoiceDiscountType>
 		<crm:invoiceDiscountAmount>0</crm:invoiceDiscountAmount>
 		<crm:invoiceDiscountPercent>0</crm:invoiceDiscountPercent>
-		<crm:netTotal>60</crm:netTotal>
+		<crm:netTotal>20</crm:netTotal>
 		<crm:discountTotal>10</crm:discountTotal>
 		<crm:taxTotal>0</crm:taxTotal>
-		<crm:grossTotal>63</crm:grossTotal>
-		<crm:text2>Add a detail line</crm:text2>
-		<crm:user>Ryan</crm:user>
+		<crm:grossTotal>21</crm:grossTotal>
+		<crm:text2>Delete a detail line</crm:text2>
+		<crm:user>Beatriz</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>

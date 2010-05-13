@@ -25,7 +25,7 @@
     <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</origin>
     <digestEntry>
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>7</tick>
+      <tick>8</tick>
       <stamp>2010-10-30T17:23:08Z</stamp>
       <conflictPriority>1</conflictPriority>
     </digestEntry>
@@ -45,12 +45,12 @@
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>7</tick>
+      <tick>8</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
     <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:salesInvoice sdata:key="14082" sdata:uuid="62559e90-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
+      <crm:salesInvoice sdata:key="14082" sdata:uuid="73668410-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
 		<crm:active>true</crm:active>
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>

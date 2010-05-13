@@ -9,13 +9,13 @@
       xmlns:sc="http://schemas.sage.com/sc/2009" 
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
-  <title>salesInvoice synchronization feed c9308ed0-5d4a-11df-a08a-0800200c9a66</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('c9308ed0-5d4a-11df-a08a-0800200c9a66')</id>
+  <title>salesInvoice synchronization feed 4d8eb5f0-5d1c-11df-a08a-0800200c9a66</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('4d8eb5f0-5d1c-11df-a08a-0800200c9a66')</id>
   <updated>2008-03-31T13:46:45Z</updated>
 
   <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
  
-  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:totalResults>5</opensearch:totalResults>
   <opensearch:startIndex>1</opensearch:startIndex>
   <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
  
@@ -25,7 +25,7 @@
     <origin>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</origin>
     <digestEntry>
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>10</tick>
+      <tick>5</tick>
       <stamp>2010-10-30T17:23:08Z</stamp>
       <conflictPriority>1</conflictPriority>
     </digestEntry>
@@ -38,19 +38,19 @@
   </digest>
  
   <entry>
-    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')</id>
-    <title>Invoice 14084<title/>
+    <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14086')</id>
+    <title>Invoice 14086<title/>
     <updated>2008-10-30T14:55:43.281Z</updated>
-    <content>BB Invoice 14084</content>
+    <content>BB Invoice 14086</content>
  
     <syncState xmlns="http://schemas.sage.com/sdata/sync/2008/1">
       <endpoint>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices</endpoint>
-      <tick>10</tick>
+      <tick>1</tick>
       <stamp>2010-10-31T14:55:43.281Z</stamp>
     </syncState>
  
     <payload xmlns="http://schemas.sage.com/sdata/2008/1">
-      <crm:salesInvoice sdata:key="14084" sdata:uuid="8be5b9c0-5d1c-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
+      <crm:salesInvoice sdata:key="14086" sdata:uuid="2ca10170-5e09-11df-a08a-0800200c9a66" xmlns="http://schemas.sage.com/crmErp">
 		<crm:active>true</crm:active>
 		<crm:status>Printed</crm:status>
 		<crm:statusFlag>false</crm:statusFlag>
@@ -60,12 +60,12 @@
 			sdata:key="43660" 
 			xmlns="http://schemas.sage.com/crmErp">
 		</crm:tradingAccount>
-		<crm:customerReference>I1250</crm:customerReference>
+		<crm:customerReference>I1252</crm:customerReference>
 		<crm:copyFlag>false</crm:copyFlag>
 		<crm:date>2010-03-31Z</crm:date>
 		<crm:time>13:46:45Z</crm:time>
 		<crm:taxDate>2010-03-31Z</crm:taxDate>
-		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')/taxCodes" />
+		<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14086')/taxCodes" />
 		<crm:deliveryRule>true</crm:deliveryRule>
 		<crm:currency>CAD</crm:currency>
 		<crm:operatingCompanyCurrency>CAD</crm:operatingCompanyCurrency>
@@ -73,8 +73,8 @@
 		<crm:operatingCompanyCurrencyExchangeRateOperator>*</crm:operatingCompanyCurrencyExchangeRateOperator>
 		<crm:operatingCompanyCurrencyExchangeRateDate>2010-03-31Z</crm:operatingCompanyCurrencyExchangeRateDate>
 		<crm:buyerContact sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/contacts('310')" />
-		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14084')/salesInvoiceLines">
-		  <crm:salesInvoiceLine sdata:key="97650">
+		<crm:salesInvoiceLines sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('14086')/salesInvoiceLines">
+		  <crm:salesInvoiceLine sdata:key="97644">
 		    <crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:>
@@ -92,7 +92,7 @@
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
 		  </crm:salesInvoiceLine>
-		  <crm:salesInvoiceLine sdata:key="97651">
+		  <crm:salesInvoiceLine sdata:key="97645">
 			<crm:active>true</crm:active>
 			<crm:status>Printed</crm:status>
 			<crm:type>Standard Line</crm:>
@@ -110,38 +110,22 @@
 			<crm:taxTotal>1</crm:taxTotal>
 			<crm:grossTotal>21</crm:grossTotal>
 		  </crm:salesInvoiceLine>
-		  <crm:salesInvoiceLine sdata:key="97654">
-			<crm:active>true</crm:active>
-			<crm:status>Printed</crm:status>
-			<crm:type>Standard Line</crm:>
-			<crm:number>3</crm:number>
-			<crm:text>Invoice line 3</crm:text>
-			<crm:unitOfMeasure sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/unitsOfMeasure('each')" />
-			<crm:quantity>2</crm:quantity>
-			<crm:initialPrice>10</crm:initialPrice>
-			<crm:actualPrice>10</crm:actualPrice>
-			<crm:netTotal>20</crm:netTotal>
-			<crm:chargesTotal>20</crm:chargesTotal>
-			<crm:discountTotal>0</crm:discountTotal>
-			<crm:taxCodes sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoiceLines('97645')/taxCodes" />
-			<crm:priceTax>0.5</crm:priceTax>
-			<crm:taxTotal>1</crm:taxTotal>
-			<crm:grossTotal>21</crm:grossTotal>
-		  </crm:salesInvoiceLine>
 		</crm:salesInvoiceLines>
-		<crm:lineCount>3</crm:lineCount>
+		<crm:lineCount>2</crm:lineCount>
 		<crm:settlementDiscountIncludedInTotal>false</crm:settlementDiscountIncludedInTotal>
 		<crm:invoiceDiscountType>Percent</crm:invoiceDiscountType>
 		<crm:invoiceDiscountAmount>0</crm:invoiceDiscountAmount>
 		<crm:invoiceDiscountPercent>0</crm:invoiceDiscountPercent>
-		<crm:netTotal>60</crm:netTotal>
+		<crm:netTotal>40</crm:netTotal>
 		<crm:discountTotal>10</crm:discountTotal>
 		<crm:taxTotal>0</crm:taxTotal>
-		<crm:grossTotal>63</crm:grossTotal>
-		<crm:text2>Add a detail line</crm:text2>
-		<crm:user>Ryan</crm:user>
+		<crm:grossTotal>42</crm:grossTotal>
+		<crm:text2>Invoice with special character????</crm:text2>
+		<crm:user>Beatriz</crm:user>
       </crm:salesInvoice>
     </payload>
   </entry>
-    
- </feed>
+  
+  
+ 
+</feed>
