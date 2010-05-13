@@ -18,11 +18,8 @@ Download Python 2.65 from http://www.python.org/download/
 Install to C:\Python26
 Add C:\Python26 to system path
 
-Put bottle.py in C:\Python26\lib
-Bottle.py is on github,  I just went to this link and copied the text and created a file in Notepad.
-http://github.com/defnull/bottle/raw/master/bottle.py 
-
 Go to http://github.com/beeman88/stub copy everything but the curl folder the files to C:\Python26
+Make sure to put bottle.py in C:\Python26\Lib
 
 If you don't have curl, copy the curl folder to C:\
 If you have curl, copy curl_stub.bat to your curl folder
