@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tracking xmlns="http://schemas.sage.com/sdata/2008">
+  <phase>Sync Invoices</phase>
+  <phaseDetail>Request</phaseDetail>
+  <progress>0.0</progress>
+  <elapsedSeconds>0</elapsedSeconds>
+  <remainingSeconds>7</remainingSeconds>
+  <pollingMillis>500</pollingMillis>
+</tracking>

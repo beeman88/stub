@@ -9,8 +9,8 @@
       xmlns:sc="http://schemas.sage.com/sc/2009" 
       xmlns:crm="http://schemas.sage.com/crmErp/2008">
  
-  <title>salesInvoice synchronization feed c9308ed0-5d4a-11df-a08a-0800200c9a66</title>
-  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('c9308ed0-5d4a-11df-a08a-0800200c9a66')</id>
+  <title>salesInvoice synchronization feed 59ed6450-5de8-11df-a08a-0800200c9a66</title>
+  <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$syncSource('59ed6450-5de8-11df-a08a-0800200c9a66')</id>
   <updated>2008-03-31T13:46:45Z</updated>
 
   <category scheme="http://schemas.sage.com/sdata/categories" term="salesInvoice" label=""/>
