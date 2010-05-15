@@ -96,30 +96,51 @@ def index():
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='POST')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='POST')
 def index():
-    global new_link_ids_index 
-    global new_link_ids
-    
+    import xml.dom.minidom    
+
     log_method_start('Post new links')
 
     if authentication() <> "Authenticated":
-        return "Access Denied"
+        return "Access Denied"    
 
-    if debug == "1":    
-        write_to_log('201 Created')
-        write_to_log("new link ids index = {0}".format(new_link_ids_index))
-        write_to_log(new_link_ids[new_link_ids_index].strip())
-    
-    response.status = 201
-    response.content_type='application/atom+xml'
-    response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + new_link_ids[new_link_ids_index].strip() + "')"
+    write_to_log(request.body.read())    
 
-    xml = sdata_link_post()
-    
-    # increment new_link_ids_index
-    new_link_ids_index = new_link_ids_index + 1
+    # create an xml document from the request body
+    doc = xml.dom.minidom.parseString(request.body.read())
+    write_to_log(doc.toxml())
 
-    return xml
+    try:
+        # set response status and content
+        response.status = 201
+        response.content_type='application/atom+xml'
 
+        # get url, uuid, key, name from xml doc
+        payload = doc.getElementsByTagName("payload")[0]
+        write_to_log(payload.toxml())
+        resource = payload.getElementsByTagName("crm:tradingAccount")[0]
+        write_to_log(resource.toxml())        
+        uuid = resource.attributes["sdata:uuid"].value
+        write_to_log(uuid)
+        response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + uuid + "')"
+        
+        url = resource.attributes["sdata:url"].value
+        write_to_log(url)
+        # get the key from the url between the ('...') TODO use regex
+        key = url[url.index("('") + 2:url.index("')")]
+        write_to_log(key)        
+        elName = payload.getElementsByTagName("crm:name")[0]
+        write_to_log(elName.toxml())
+        name = elName.firstChild.data
+        write_to_log(name)
+        doc.unlink()
+        xml = sdata_link_post_tradingAccount(url, key, uuid, name)
+        write_to_log(xml)
+        return xml        
+    except Exception:
+        doc.unlink()
+        response.status = 404
+        write_to_log("Exception")
+        return sdata_link_post_from_file()
 
 # 6. Create sync request
 # POST
@@ -230,13 +251,69 @@ def sdata_link_feed_unlinked():
 def sdata_link_feed_all():
     return read_file('link_feed_all.xml')
 
-def sdata_link_post():
-    global new_link_ids_index 
+def sdata_link_post_from_file():
+    return read_file('link_post.xml')
 
-    if new_link_ids_index == 0:
-        return read_file('link_post.xml')
-    else:
-        return read_file('link_post_{0}.xml'.format(new_link_ids_index))
+##def sdata_link_post():
+##    global new_link_ids_index 
+##
+##    if new_link_ids_index == 0:
+##        return read_file('link_post.xml')
+##    else:
+##        return read_file('link_post_{0}.xml'.format(new_link_ids_index))
+
+def sdata_link_post_tradingAccount(url, key, uuid, name):
+    return '''
+    <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+           xmlns="http://www.w3.org/2005/Atom" 
+           xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+           xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+           xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+           xmlns:sc="http://schemas.sage.com/sc/2009" 
+           xmlns:crm="http://schemas.sage.com/crmErp/2008" >
+      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts/$linked('{2}')</id>
+      <title>Linked account {2}</title>
+      <updated>2010-05-25T13:27:19.207Z</updated>
+      <payload xmlns="http://schemas.sage.com/sdata/2008/1">
+        <crm:tradingAccount sdata:uuid="{2}"
+          sdata:url="{0}"
+          sdata:key="{1}" 
+          xmlns="http://schemas.sage.com/crmErp">
+          <crm:name>{3}</crm:name>
+        </crm:tradingAccount>
+      </payload>
+    </entry>
+    '''.format(url, key, uuid, name)
+
+def sdata_link_post_salesInvoice(key, uuid, name, reference, cust_key, cust_uuid):
+    return '''
+    <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+           xmlns="http://www.w3.org/2005/Atom" 
+           xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+           xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+           xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+           xmlns:sc="http://schemas.sage.com/sc/2009" 
+           xmlns:crm="http://schemas.sage.com/crmErp/2008" >
+      <id>http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices/$linked('{1}')</id>
+      <title>Linked invoice {1}</title>
+      <updated>2010-05-25T13:27:19.207Z</updated>
+      <payload xmlns="http://schemas.sage.com/sdata/2008/1">
+        <crm:salesInvoice sdata:uuid="{1}"
+          sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/salesInvoices('{0}')"
+          sdata:key="{0}" 
+          xmlns="http://schemas.sage.com/crmErp">
+                    <crm:tradingAccount sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('{3}')" sdata:uuid="{4}" />
+                    <crm:customerReference>{2}</crm:customerReference>
+        </crm:salesInvoice>
+      </payload>
+    </entry>
+    '''.format(key, uuid, reference, cust_key, cust_uuid)    
     
 def sdata_sync_accepted():
     return read_file('sync_accepted.xml')
@@ -263,6 +340,10 @@ def read_file(filename):
     write_to_log(xml)
     f.close()
     return xml
+
+def debug_write_to_log(line):
+    if debug == "1":
+        write_to_log(line)
 
 def write_to_log(line):
     log.write(line + '\n')

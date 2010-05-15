@@ -1,0 +1,21 @@
+<entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+       xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
+       xmlns="http://www.w3.org/2005/Atom" 
+       xmlns:sdata="http://schemas.sage.com/sdata/2008/1" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" 
+       xmlns:sme="http://schemas.sage.com/sdata/sme/2007" 
+       xmlns:http="http://schemas.sage.com/sdata/http/2008/1" 
+       xmlns:sc="http://schemas.sage.com/sc/2009" 
+       xmlns:crm="http://schemas.sage.com/crmErp/2008" >
+  <id/>
+  <title/>
+  <updated>2008-05-25T13:27:19.207Z</updated>
+  <payload xmlns="http://schemas.sage.com/sdata/2008/1">
+    <crm:tradingAccount sdata:uuid="8d2f70d0-5887-11df-a08a-0800200c9a66"
+      sdata:url="http://www.billingboss.com/sdata/billingboss/crmErp/-/tradingAccounts('43671')"
+      xmlns="http://schemas.sage.com/crmErp">
+	  <crm:name>Customer Name 43671</crm:name>
+    </crm:tradingAccount>
+  </payload>
+</entry>
