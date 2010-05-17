@@ -8,6 +8,8 @@ from bottle import route, run, request, response
 global debug
 global log
 global port_number
+global TRADING_ACCOUNTS
+global SALES_INVOICES 
 
 @route('/')
 def index():
@@ -96,48 +98,18 @@ def index():
 @route('/sdata/billingboss/crmErp/-/tradingAccounts/$linked', method='POST')
 @route('/sdata/billingboss/crmErp/-/salesInvoices/$linked', method='POST')
 def index():
-    import xml.dom.minidom    
-
     log_method_start('Post new links')
 
     if authentication() <> "Authenticated":
-        return "Access Denied"    
+        return "Access Denied"
 
-    write_to_log(request.body.read())    
-
-    # create an xml document from the request body
-    doc = xml.dom.minidom.parseString(request.body.read())
-    write_to_log(doc.toxml())
-
-    try:
-        # set response status and content
-        response.status = 201
-        response.content_type='application/atom+xml'
-
-        # get url, uuid, key, name from xml doc
-        payload = doc.getElementsByTagName("payload")[0]
-        write_to_log(payload.toxml())
-        resource = payload.getElementsByTagName("crm:tradingAccount")[0]
-        write_to_log(resource.toxml())        
-        uuid = resource.attributes["sdata:uuid"].value
-        write_to_log(uuid)
-        response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + uuid + "')"
-        
-        url = resource.attributes["sdata:url"].value
-        write_to_log(url)
-        # get the key from the url between the ('...') TODO use regex
-        key = url[url.index("('") + 2:url.index("')")]
-        write_to_log(key)        
-        elName = payload.getElementsByTagName("crm:name")[0]
-        write_to_log(elName.toxml())
-        name = elName.firstChild.data
-        write_to_log(name)
-        doc.unlink()
-        xml = sdata_link_post_tradingAccount(url, key, uuid, name)
-        write_to_log(xml)
-        return xml        
-    except Exception:
-        doc.unlink()
+    body = request.body.read()
+    write_to_log(body)        
+    if request.url.find(TRADING_ACCOUNTS) > 0:
+        return post_link_resource(TRADING_ACCOUNTS, body)
+    elif request.url.find(SALES_INVOICES) > 0: 
+        return post_link_resource(SALES_INVOICES, body)
+    else:
         response.status = 404
         write_to_log("Exception")
         return sdata_link_post_from_file()
@@ -254,13 +226,93 @@ def sdata_link_feed_all():
 def sdata_link_post_from_file():
     return read_file('link_post.xml')
 
-##def sdata_link_post():
-##    global new_link_ids_index 
-##
-##    if new_link_ids_index == 0:
-##        return read_file('link_post.xml')
-##    else:
-##        return read_file('link_post_{0}.xml'.format(new_link_ids_index))
+def post_link_resource(resource_type, body):
+    import xml.dom.minidom        
+    # create an xml document from the request body
+    
+    doc = xml.dom.minidom.parseString(body)
+    write_to_log(doc.toxml())
+
+    try:
+        # set response status and content
+        response.status = 201
+        response.content_type='application/atom+xml'
+
+        # get url, uuid, key, name from xml doc
+        payload = doc.getElementsByTagName("payload")[0]
+        write_to_log(payload.toxml())
+        xml = ''
+        if resource_type == TRADING_ACCOUNTS:
+            resource = payload.getElementsByTagName("crm:tradingAccount")[0]
+            
+            uuid = get_uuid_from_resource(resource)
+            set_response_location(uuid)
+            url = get_url_from_resource(resource)
+            key = get_key_from_resource(resource)
+            name = get_name_from_payload(payload)
+
+            xml = sdata_link_post_tradingAccount(url, key, uuid, name)
+            
+        elif resource_type == SALES_INVOICES:
+            resource = payload.getElementsByTagName("crm:salesInvoice")[0]
+            
+            uuid = get_uuid_from_resource(resource)
+            set_response_location(uuid)            
+
+            url = get_url_from_resource(resource)             
+            key = get_key_from_resource(resource)
+            #customer reference            
+            ref = get_ref_from_payload(payload)            
+
+            elCust = payload.getElementsByTagName("crm:tradingAccount")[0]
+            cust_uuid = get_uuid_from_resource(elCust)
+            cust_key = get_key_from_resource(elCust)
+            
+            xml = sdata_link_post_salesInvoice(url, key, ref, cust_key, cust_uuid)
+
+        doc.unlink()            
+        write_to_log(xml)
+        return xml        
+    except Exception:
+        doc.unlink()
+        response.status = 404
+        write_to_log("Exception")
+        return sdata_link_post_from_file()
+
+def get_uuid_from_resource(resource):
+    write_to_log(resource.toxml())        
+    uuid = resource.attributes["sdata:uuid"].value
+    write_to_log(uuid)
+    return uuid
+
+def get_url_from_resource(resource):
+    url = resource.attributes["sdata:url"].value
+    return url
+
+def get_key_from_resource(resource):
+    url = resource.attributes["sdata:url"].value
+    write_to_log(url)
+    # get the key from the url between the ('...') TODO use regex
+    key = url[url.index("('") + 2:url.index("')")]
+    write_to_log(key)
+    return key
+
+def get_name_from_payload(payload):
+    elName = payload.getElementsByTagName("crm:name")[0]
+    write_to_log(elName.toxml())
+    name = elName.firstChild.data
+    write_to_log(name)
+    return name
+
+def get_ref_from_payload(payload):
+    elRef = payload.getElementsByTagName("crm:customerReference")[0]
+    write_to_log(elRef.toxml())
+    ref = elRef.firstChild.data
+    write_to_log(ref)
+    return ref
+
+def set_response_location(uuid):
+    response.headers['Location'] = 'http://localhost:{0}'.format(port_number) + request.path + "('" + uuid + "')"                
 
 def sdata_link_post_tradingAccount(url, key, uuid, name):
     return '''
@@ -288,7 +340,7 @@ def sdata_link_post_tradingAccount(url, key, uuid, name):
     </entry>
     '''.format(url, key, uuid, name)
 
-def sdata_link_post_salesInvoice(key, uuid, name, reference, cust_key, cust_uuid):
+def sdata_link_post_salesInvoice(key, uuid, reference, cust_key, cust_uuid):
     return '''
     <entry xmlns:xs="http://www.w3.org/2001/XMLSchema" 
            xmlns:cf="http://www.microsoft.com/schemas/rss/core/2005" 
@@ -393,6 +445,8 @@ write_to_log('new link ids = {0}'.format(new_link_ids))
 new_link_ids_index = 0
 in_progress_count = 0
 in_progress_reqs = 1
+TRADING_ACCOUNTS = "tradingAccounts"
+SALES_INVOICES = "salesInvoices"
 
 #read debug flag
 debug = config.readline()
