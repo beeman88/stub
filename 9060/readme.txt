@@ -3,7 +3,8 @@ curl_stub 9060 3490d2f0-5de3-11df-a08a-0800200c9a66 user password salesInvoices
 
 
 9060
-error link and synch an invoice with an unlinked customer
+error link an invoice with an unlinked customer
+
 
 
 config.sys
